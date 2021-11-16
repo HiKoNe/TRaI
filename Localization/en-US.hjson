@@ -1,0 +1,28 @@
+Mods:
+{
+	TRaI:
+	{
+		CategoryPanel: "Open all categories."
+		HistoryPanel: "Clear history."
+		PagePanel: "To first page."
+
+		CategoryText: "{0} / {1} Categories ({2}) [{3}]"
+		HistoryText: "{0} / {1} History"
+		PageText: "{0} / {1} Pages ({2}) [{3}]"
+
+		TRaIItems: "TRaI Items"
+		TRaIRecipes: "TRaI Recipes"
+		TRaIConfig: "TRaI Config"
+
+		LootEmulations: "Loot Emulations: {0}"
+		BossBags: "Boss Bags"
+		ByHand: "By Hand"
+		Extractinator: "Extractinator"
+		FishCrates: "Fish Crates"
+		Fishing: "Fishing"
+		NPCDrops: "NPC Drops"
+		VanillaBags: "Vanilla Bags"
+
+		RecipeAdded: "Recipe added by: '{0}'"
+	}
+}
