@@ -72,7 +72,13 @@ namespace TRaI
                 bool[] badPreFixLine = new bool[num2];
                 string[] tooltipNames = new string[num2];
                 Main.MouseText_DrawItemTooltip_GetLinesInfo(item, ref yoyoLogo, ref researchLine, 0, ref numLines, toolTipLine, preFixLine, badPreFixLine, tooltipNames);
-                ItemLoader.ModifyTooltips(item, ref numLines, tooltipNames, ref toolTipLine, ref preFixLine, ref badPreFixLine, ref yoyoLogo, out _);
+                try
+                {
+                    ItemLoader.ModifyTooltips(item, ref numLines, tooltipNames, ref toolTipLine, ref preFixLine, ref badPreFixLine, ref yoyoLogo, out _);
+                }
+                catch
+                {
+                }
                 AllToolTips[item.type] = string.Join("\n", toolTipLine).ToLower();
             }
             AllItems = list.ToArray();

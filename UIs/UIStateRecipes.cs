@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -257,6 +258,8 @@ namespace TRaI.UIs
                 cb.SetImage(TRaIAsset.Panel[j == CurrentCategory ? 2 : 1]);
                 Append(cb);
 
+                if (ActiveCategories[j].TextureIcon.State == AssetState.NotLoaded)
+                    Main.Assets.Request<Texture2D>(ActiveCategories[j].TextureIcon.Name, AssetRequestMode.ImmediateLoad);
                 var categoryIcon = new UIImage(ActiveCategories[j].TextureIcon);
                 categoryIcon.HAlign = categoryIcon.VAlign = 0.5f;
                 cb.Append(categoryIcon);

@@ -9,3 +9,5 @@
 - View ID on Item.
 - View Mod Name on Item.
 - Settings item panel size.
+
+All Issue in Discord*
