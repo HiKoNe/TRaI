@@ -21,6 +21,7 @@ Mods:
 		FishCrates: "Ящики для рыбы"
 		Fishing: "Рыбалка"
 		NPCDrops: "Добыча NPC"
+		NPCShop: "Магазин NPC"
 		VanillaBags: "Ванильные сумки"
 
 		RecipeAdded: "Рецепт добавлен: '{0}'"

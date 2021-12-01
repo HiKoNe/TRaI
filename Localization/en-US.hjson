@@ -21,6 +21,7 @@ Mods:
 		FishCrates: "Fish Crates"
 		Fishing: "Fishing"
 		NPCDrops: "NPC Drops"
+		NPCShop: "NPC Shop"
 		VanillaBags: "Vanilla Bags"
 
 		RecipeAdded: "Recipe added by: '{0}'"

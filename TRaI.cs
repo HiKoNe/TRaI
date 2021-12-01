@@ -18,6 +18,7 @@ namespace TRaI
         public static TRaI Instance { get; set; }
 
         public static Item[] AllItems { get; private set; }
+        public static List<Item>[] NPCShops { get; private set; }
         public static List<int>[] AdjacentTiles { get; private set; }
         public static Dictionary<int, string> AllToolTips { get; private set; } = new();
         public static int ItemsCount { get; private set; }
@@ -71,15 +72,16 @@ namespace TRaI
                 bool[] preFixLine = new bool[num2];
                 bool[] badPreFixLine = new bool[num2];
                 string[] tooltipNames = new string[num2];
-                Main.MouseText_DrawItemTooltip_GetLinesInfo(item, ref yoyoLogo, ref researchLine, 0, ref numLines, toolTipLine, preFixLine, badPreFixLine, tooltipNames);
                 try
                 {
+                    Main.MouseText_DrawItemTooltip_GetLinesInfo(item, ref yoyoLogo, ref researchLine, 0, ref numLines, toolTipLine, preFixLine, badPreFixLine, tooltipNames);
                     ItemLoader.ModifyTooltips(item, ref numLines, tooltipNames, ref toolTipLine, ref preFixLine, ref badPreFixLine, ref yoyoLogo, out _);
+                    AllToolTips[item.type] = string.Join("\n", toolTipLine).ToLower();
                 }
                 catch
                 {
+                    AllToolTips[item.type] = item.Name;
                 }
-                AllToolTips[item.type] = string.Join("\n", toolTipLine).ToLower();
             }
             AllItems = list.ToArray();
             ItemsCount = list.Count;
@@ -133,36 +135,6 @@ namespace TRaI
                     AdjacentTiles[i] = adjTiles;
             }
         }
-
-        //public override void AddRecipes()
-        //{
-        //    CreateRecipe(ItemID.DirtBlock, 999)
-        //        .AddTile(TileID.WorkBenches)
-        //        .AddTile(TileID.Anvils)
-        //        .AddTile(TileID.Furnaces)
-        //        .AddIngredient(ItemID.DirtBlock, 999)
-        //        .AddIngredient(ItemID.StoneBlock, 1)
-        //        .AddIngredient(ItemID.Wood, 1)
-        //        .AddIngredient(ItemID.IronOre, 1)
-        //        .AddIngredient(ItemID.CopperOre, 1)
-        //        .AddIngredient(ItemID.GoldOre, 1)
-        //        .AddIngredient(ItemID.SilverOre, 1)
-        //        .AddIngredient(ItemID.GoldBar, 1)
-        //        .AddIngredient(ItemID.CopperBar, 1)
-        //        .AddIngredient(ItemID.SilverBar, 1)
-        //        .AddIngredient(ItemID.IronBar, 1)
-        //        .AddIngredient(ItemID.Gel, 1)
-        //        .AddIngredient(ItemID.Acorn, 1)
-        //        .AddIngredient(ItemID.Bottle, 1)
-        //        .AddIngredient(ItemID.Lens, 1)
-        //        .AddIngredient(ItemID.CopperCoin, 1)
-        //        .AddIngredient(ItemID.SilverCoin, 1)
-        //        .AddIngredient(ItemID.GoldCoin, 1)
-        //        .AddIngredient(ItemID.PlatinumCoin, 1)
-        //        .AddIngredient(ItemID.Torch, 1)
-        //        .AddCondition(Recipe.Condition.TimeDay, Recipe.Condition.NearWater, Recipe.Condition.NearLava)
-        //        .Register();
-        //}
 
         void Main_DrawInventory(On.Terraria.Main.orig_DrawInventory orig, Main self)
         {

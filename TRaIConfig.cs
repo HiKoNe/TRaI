@@ -20,6 +20,10 @@ namespace TRaI
         [DefaultValue(true)]
         public bool ShowModName;
 
+        [Label("Show Item Price")]
+        [DefaultValue(true)]
+        public bool ShowItemPrice;
+
         [Header("Items Grid")]
         [Range(5, 40)]
         [Increment(1)]

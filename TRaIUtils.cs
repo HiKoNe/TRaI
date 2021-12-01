@@ -109,7 +109,8 @@ namespace TRaI
         public static void SetOutputs(this RecipeIngredients ingredients, IEnumerable<Item> items)
         {
             foreach (var item in items)
-                ingredients.SetOutput(new ItemIngredient(item, item.stack));
+                if (item is not null)
+                    ingredients.SetOutput(new ItemIngredient(item, item.stack));
         }
     }
 }

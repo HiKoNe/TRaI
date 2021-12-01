@@ -29,6 +29,7 @@ namespace TRaI.APIs
         public abstract LocalizedText Name { get; }
         public abstract StyleDimension Width { get; }
         public abstract int Height { get; }
+        public virtual bool NeedReinit { get; }
 
         public abstract void InitRecipes();
         public abstract void InitElement(UIRecipeLayout layout, IRecipeElement recipeElement, RecipeIngredients ingredients);

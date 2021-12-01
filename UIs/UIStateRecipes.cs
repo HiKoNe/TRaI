@@ -200,6 +200,15 @@ namespace TRaI.UIs
                 categoryButton.RemoveAllChildren();
             }
 
+            foreach (var category in RecipeCategoryLoader.Categories)
+            {
+                if (category.NeedReinit)
+                {
+                    category.Recipes.Clear();
+                    category.InitRecipes();
+                }
+            }
+
             if (Mode == Mode.All)
                 ActiveCategories = RecipeCategoryLoader.Categories.ToList();
             else
